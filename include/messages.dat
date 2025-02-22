@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+#x_shellcheck disable=all
+# :: Interne Nachrichten
+  # :name: messages
+  # :type: module
+  # :desc: Enthält die Nachrichten für diese Sammlung von Skripten
+  # :deps: Keine Abhängigkeiten
+#
+#
+    _MSG[0]="Msg is not found"
+    _MSG[1]="TEST TEST"
+    _MSG[2]="ERROR: "
+    _MSG[3]="!!! "
+    _MSG[4]="Falsche Option"
+    _MSG[5]="Noch nicht implementiert"
+    _MSG[10]="ARRAY"
+    _MSG[11]="MAP"
+    _MSG[12]="INT"
+    _MSG[13]="STRING"
+    _MSG[1001]="Kein Kommando: "
+    _MSG[1002]="Benötigte Anzahl von Argumenten: "
+    _MSG[1003]="Zu wenig Argumente, benötigte Anzahl von Argumenten: "
+    _MSG[1004]="Zu viele Argumente, benötigte Anzahl von Argumenten: "
+    _MSG[1005]="Muss ein String sein. Argument Nummer: "
+    _MSG[1006]="Keine Datei: "
+    _MSG[1007]="Kein Verzeichnis: "
+#
+    _MSG_MAP["testtest"]="1"
+    _MSG_MAP["err"]="2"
+    _MSG_MAP["warn_sign"]="3"
+    _MSG_MAP["wrong_option"]="4"
+    _MSG_MAP["not_yet_implemented"]="5"
+    _MSG_MAP["arr"]="10"
+    _MSG_MAP["map"]="11"
+    _MSG_MAP["int"]="12"
+    _MSG_MAP["str"]="13"
+    _MSG_MAP["no_command"]="1001"
+    _MSG_MAP["nr_args_needed"]="1002"
+    _MSG_MAP["nr_args_needed_gt"]="1003"
+    _MSG_MAP["nr_args_needed_lt"]="1004"
+    _MSG_MAP["no_string"]="1005"
+    _MSG_MAP["no_file"]="1006"
+    _MSG_MAP["no_dir"]="1007"
+#
+  # :scop: readonly
+main_messages() {
+    echo "in messages.sh"
+}; readonly -f main_messages
+if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
+main_messages "$@"
+fi

@@ -1,0 +1,1164 @@
+#!/usr/bin/env bash
+#shellcheck disable=2250
+#
+# https://github.com/messutied/colors.sh/
+#                            blob/master/src/components/HomeScreen/colors-256.js
+# Vordergrundfarben
+    color0="\e[38;5;0m";black="$color0";export color0;export black;
+    color1="\e[38;5;1m";maroon="$color1";export color1;export maroon;
+    color2="\e[38;5;2m";green="$color2";export color2;export green;
+    color3="\e[38;5;3m";olive="$color3";export color3;export olive;
+    color4="\e[38;5;4m";navy="$color4";export color4;export navy;
+    color5="\e[38;5;5m";purple="$color5";export color5;export purple;
+    color6="\e[38;5;6m";teal="$color6";export color6;export teal;
+    color7="\e[38;5;7m";silver="$color7";export color7;export silver;
+    color8="\e[38;5;8m";grey="$color8";export color8;export grey;
+    color9="\e[38;5;9m";red="$color9";export color9;export red;
+    color10="\e[38;5;10m";lime="$color10";export color10;export lime;
+    color11="\e[38;5;11m";yellow="$color11";export color11;export yellow;
+    color12="\e[38;5;12m";blue="$color12";export color12;export blue;
+    color13="\e[38;5;13m";fuchsia="$color13";export color13;export fuchsia;
+    color14="\e[38;5;14m";aqua="$color14";export color14;export aqua;
+    color15="\e[38;5;15m";white="$color15";export color15;export white;
+    color16="\e[38;5;16m";grey0="$color16";export color16;export grey0;
+    color17="\e[38;5;17m";navyBlue="$color17";export color17;export navyBlue;
+    color18="\e[38;5;18m";darkBlue="$color18";export color18;export darkBlue;
+    color19="\e[38;5;19m";blue3="$color19";export color19;export blue3;
+    color20="\e[38;5;20m";blue3="$color20";export color20;export blue3;
+    color21="\e[38;5;21m";blue1="$color21";export color21;export blue1;
+    color22="\e[38;5;22m";darkGreen="$color22";export color22;export darkGreen;
+    color23="\e[38;5;23m";deepSkyBlue4_1="$color23";
+                                export color23;export deepSkyBlue4_1;
+    color24="\e[38;5;24m";deepSkyBlue4_2="$color24";
+                                export color24;export deepSkyBlue4_2;
+    color25="\e[38;5;25m";deepSkyBlue4="$color25";
+                                export color25;export deepSkyBlue4;
+    color26="\e[38;5;26m";dodgerBlue3="$color26";
+                                export color26;export dodgerBlue3;
+    color27="\e[38;5;27m";dodgerBlue2="$color27";export color27;export dodgerBlue2;
+    color28="\e[38;5;28m";green4="$color28";export color28;export green4;
+    color29="\e[38;5;29m";springGreen4="$color29";
+                                export color29;export springGreen4;
+    color30="\e[38;5;30m";turquoise4="$color30";export color30;export turquoise4;
+    color31="\e[38;5;31m";deepSkyBlue3_1="$color31";
+                                export color31;export deepSkyBlue3_1;
+    color32="\e[38;5;32m";deepSkyBlue3="$color32";
+                                export color32;export deepSkyBlue3;
+    color33="\e[38;5;33m";dodgerBlue1="$color33";export color33;export dodgerBlue1;
+    color34="\e[38;5;34m";green3="$color34";export color34;export green3;
+    color35="\e[38;5;35m";springGreen3_1="$color35";
+                                export color35;export springGreen3_1;
+    color36="\e[38;5;36m";darkCyan="$color36";export color36;export darkCyan;
+    color37="\e[38;5;37m";lightSeaGreen="$color37";
+                                export color37;export lightSeaGreen;
+    color38="\e[38;5;38m";deepSkyBlue2="$color38";
+                                export color38;export deepSkyBlue2;
+    color39="\e[38;5;39m";deepSkyBlue1="$color39";
+                                export color39;export deepSkyBlue1;
+    color40="\e[38;5;40m";green3="$color40";export color40;export green3;
+    color41="\e[38;5;41m";springGreen3="$color41";
+                                export color41;export springGreen3;
+    color42="\e[38;5;42m";springGreen2_1="$color42";
+                                export color42;export springGreen2_1;
+    color43="\e[38;5;43m";cyan3="$color43";export color43;export cyan3;
+    color44="\e[38;5;44m";darkTurquoise="$color44";
+                                export color44;export darkTurquoise;
+    color45="\e[38;5;45m";turquoise2="$color45";export color45;export turquoise2;
+    color46="\e[38;5;46m";green1="$color46";export color46;export green1;
+    color47="\e[38;5;47m";springGreen2="$color47";
+                                export color47;export springGreen2;
+    color48="\e[38;5;48m";springGreen1="$color48";
+                                export color48;export springGreen1;
+    color49="\e[38;5;49m";mediumSpringGreen="$color49";
+                                export color49;export mediumSpringGreen;
+    color50="\e[38;5;50m";cyan2="$color50";export color50;export cyan2;
+    color51="\e[38;5;51m";cyan1="$color51";export color51;export cyan1;
+    color52="\e[38;5;52m";darkRed="$color52";export color52;export darkRed;
+    color53="\e[38;5;53m";deepPink4="$color53";export color53;export deepPink4;
+    color54="\e[38;5;54m";purple4_1="$color54";export color54;export purple4_1;
+    color55="\e[38;5;55m";purple4="$color55";export color55;export purple4;
+    color56="\e[38;5;56m";purple3="$color56";export color56;export purple3;
+    color57="\e[38;5;57m";blueViolet="$color57";export color57;export blueViolet;
+    color58="\e[38;5;58m";orange4="$color58";export color58;export orange4;
+    color59="\e[38;5;59m";grey37="$color59";export color59;export grey37;
+    color60="\e[38;5;60m";mediumPurple4="$color60";
+                                export color60;export mediumPurple4;
+    color61="\e[38;5;61m";slateBlue3_1="$color61";
+                                export color61;export slateBlue3_1;
+    color62="\e[38;5;62m";slateBlue3="$color62";export color62;export slateBlue3;
+    color63="\e[38;5;63m";royalBlue1="$color63";export color63;export royalBlue1;
+    color64="\e[38;5;64m";chartreuse4="$color64";export color64;export chartreuse4;
+    color65="\e[38;5;65m";darkSeaGreen4_1="$color65";
+                                export color65;export darkSeaGreen4_1;
+    color66="\e[38;5;66m";paleTurquoise4="$color66";
+                                export color66;export paleTurquoise4;
+    color67="\e[38;5;67m";steelBlue="$color67";export color67;export steelBlue;
+    color68="\e[38;5;68m";steelBlue3="$color68";export color68;export steelBlue3;
+    color69="\e[38;5;69m";cornflowerBlue="$color69";
+                                export color69;export cornflowerBlue;
+    color70="\e[38;5;70m";chartreuse3_1="$color70";
+                                export color70;export chartreuse3_1;
+    color71="\e[38;5;71m";darkSeaGreen4="$color71";
+                                export color71;export darkSeaGreen4;
+    color72="\e[38;5;72m";cadetBlue_1="$color72";export color72;export cadetBlue_1;
+    color73="\e[38;5;73m";cadetBlue="$color73";export color73;export cadetBlue;
+    color74="\e[38;5;74m";skyBlue3="$color74";export color74;export skyBlue3;
+    color75="\e[38;5;75m";steelBlue1_1="$color75";
+                                export color75;export steelBlue1_1;
+    color76="\e[38;5;76m";chartreuse3="$color76";export color76;export chartreuse3;
+    color77="\e[38;5;77m";paleGreen3="$color77";export color77;export paleGreen3;
+    color78="\e[38;5;78m";seaGreen3="$color78";export color78;export seaGreen3;
+    color79="\e[38;5;79m";aquamarine3="$color79";export color79;export aquamarine3;
+    color80="\e[38;5;80m";mediumTurquoise="$color80";
+                                export color80;export mediumTurquoise;
+    color81="\e[38;5;81m";steelBlue1="$color81";export color81;export steelBlue1;
+    color82="\e[38;5;82m";chartreuse2_1="$color82";
+                                export color82;export chartreuse2_1;
+    color83="\e[38;5;83m";seaGreen2="$color83";export color83;export seaGreen2;
+    color84="\e[38;5;84m";seaGreen1_1="$color84";export color84;export seaGreen1_1;
+    color85="\e[38;5;85m";seaGreen1="$color85";export color85;export seaGreen1;
+    color86="\e[38;5;86m";aquamarine1="$color86";export color86;export aquamarine1;
+    color87="\e[38;5;87m";darkSlateGray2="$color87";
+                                export color87;export darkSlateGray2;
+    color88="\e[38;5;88m";darkRed="$color88";export color88;export darkRed;
+    color89="\e[38;5;89m";deepPink4="$color89";export color89;export deepPink4;
+    color90="\e[38;5;90m";darkMagenta_1="$color90";
+                                export color90;export darkMagenta_1;
+    color91="\e[38;5;91m";darkMagenta="$color91";export color91;export darkMagenta;
+    color92="\e[38;5;92m";darkViolet="$color92";export color92;export darkViolet;
+    color93="\e[38;5;93m";purple_1="$color93";export color93;export purple_1;
+    color94="\e[38;5;94m";orange4="$color94";export color94;export orange4;
+    color95="\e[38;5;95m";lightPink4="$color95";export color95;export lightPink4;
+    color96="\e[38;5;96m";plum4="$color96";export color96;export plum4;
+    color97="\e[38;5;97m";mediumPurple3_1="$color97";
+                                export color97;export mediumPurple3_1;
+    color98="\e[38;5;98m";mediumPurple3="$color98";
+                                export color98;export mediumPurple3;
+    color99="\e[38;5;99m";slateBlue1="$color99";export color99;export slateBlue1;
+    color100="\e[38;5;100m";yellow4_1="$color100";export color100;export yellow4_1;
+    color101="\e[38;5;101m";wheat4="$color101";export color101;export wheat4;
+    color102="\e[38;5;102m";grey53="$color102";export color102;export grey53;
+    color103="\e[38;5;103m";lightSlateGrey="$color103";
+                                export color103;export lightSlateGrey;
+    color104="\e[38;5;104m";mediumPurple="$color104";
+                                export color104;export mediumPurple;
+    color105="\e[38;5;105m";lightSlateBlue="$color105";
+                                export color105;export lightSlateBlue;
+    color106="\e[38;5;106m";yellow4="$color106";export color106;export yellow4;
+    color107="\e[38;5;107m";darkOliveGreen3_1="$color107";
+                                export color107;export darkOliveGreen3_1;
+    color108="\e[38;5;108m";darkSeaGreen="$color108";
+                                export color108;export darkSeaGreen;
+    color109="\e[38;5;109m";lightSkyBlue3_1="$color109";
+                                export color109;export lightSkyBlue3_1;
+    color110="\e[38;5;110m";lightSkyBlue3="$color110";
+                                export color110;export lightSkyBlue3;
+    color111="\e[38;5;111m";skyBlue2="$color111";
+                                export color111;export skyBlue2;
+    color112="\e[38;5;112m";chartreuse2="$color112";
+                                export color112;export chartreuse2;
+    color113="\e[38;5;113m";darkOliveGreen3_2="$color113";
+                                export color113;export darkOliveGreen3_2;
+    color114="\e[38;5;114m";paleGreen3="$color114";
+                                export color114;export paleGreen3;
+    color115="\e[38;5;115m";darkSeaGreen3_1="$color115";
+                                export color115;export darkSeaGreen3_1;
+    color116="\e[38;5;116m";darkSlateGray3="$color116";
+                                export color116;export darkSlateGray3;
+    color117="\e[38;5;117m";skyBlue1="$color117";
+                                export color117;export skyBlue1;
+    color118="\e[38;5;118m";chartreuse1="$color118";
+                                export color118;export chartreuse1;
+    color119="\e[38;5;119m";lightGreen_1="$color119";
+                                export color119;export lightGreen_1;
+    color120="\e[38;5;120m";lightGreen="$color120";
+                                export color120;export lightGreen;
+    color121="\e[38;5;121m";paleGreen1="$color121";
+                                export color121;export paleGreen1;
+    color122="\e[38;5;122m";aquamarine1="$color122";
+                                export color122;export aquamarine1;
+    color123="\e[38;5;123m";darkSlateGray1="$color123";
+                                export color123;export darkSlateGray1;
+    color124="\e[38;5;124m";red3_1="$color124";export color124;export red3_1;
+    color125="\e[38;5;125m";deepPink4="$color125";
+                                export color125;export deepPink4;
+    color126="\e[38;5;126m";mediumVioletRed="$color126";
+                                export color126;export mediumVioletRed;
+    color127="\e[38;5;127m";magenta3_1="$color127";
+                                export color127;export magenta3_1;
+    color128="\e[38;5;128m";darkViolet="$color128";
+                                export color128;export darkViolet;
+    color129="\e[38;5;129m";purple_2="$color129";
+                                export color129;export purple_2;
+    color130="\e[38;5;130m";darkOrange3="$color130";
+                                export color130;export darkOrange3;
+    color131="\e[38;5;131m";indianRed_1="$color131";
+                                export color131;export indianRed_1;
+    color132="\e[38;5;132m";hotPink3="$color132";
+                                export color132;export hotPink3;
+    color133="\e[38;5;133m";mediumOrchid3="$color133";
+                                export color133;export mediumOrchid3;
+    color134="\e[38;5;134m";mediumOrchid="$color134";
+                                export color134;export mediumOrchid;
+    color135="\e[38;5;135m";mediumPurple2_1="$color135";
+                                export color135;export mediumPurple2_1;
+    color136="\e[38;5;136m";darkGoldenrod="$color136";
+                                export color136;export darkGoldenrod;
+    color137="\e[38;5;137m";lightSalmon3="$color137";
+                                export color137;export lightSalmon3;
+    color138="\e[38;5;138m";rosyBrown="$color138";
+                                export color138;export rosyBrown;
+    color139="\e[38;5;139m";grey63="$color139";export color139;export grey63;
+    color140="\e[38;5;140m";mediumPurple2="$color140";
+                                export color140;export mediumPurple2;
+    color141="\e[38;5;141m";mediumPurple1="$color141";
+                                export color141;export mediumPurple1;
+    color142="\e[38;5;142m";gold3="$color142";export color142;export gold3;
+    color143="\e[38;5;143m";darkKhaki="$color143";
+                                export color143;export darkKhaki;
+    color144="\e[38;5;144m";navajoWhite3="$color144";
+                                export color144;export navajoWhite3;
+    color145="\e[38;5;145m";grey69="$color145";export color145;export grey69;
+    color146="\e[38;5;146m";lightSteelBlue3="$color146";
+                                export color146;export lightSteelBlue3;
+    color147="\e[38;5;147m";lightSteelBlue="$color147";
+                                export color147;export lightSteelBlue;
+    color148="\e[38;5;148m";yellow3_1="$color148";
+                                export color148;export yellow3_1;
+    color149="\e[38;5;149m";darkOliveGreen3="$color149";
+                                export color149;export darkOliveGreen3;
+    color150="\e[38;5;150m";darkSeaGreen3="$color150";
+                                export color150;export darkSeaGreen3;
+    color151="\e[38;5;151m";darkSeaGreen2_1="$color151";
+                                export color151;export darkSeaGreen2_1;
+    color152="\e[38;5;152m";lightCyan3="$color152";
+                                export color152;export lightCyan3;
+    color153="\e[38;5;153m";lightSkyBlue1="$color153";
+                                export color153;export lightSkyBlue1;
+    color154="\e[38;5;154m";greenYellow="$color154";
+                                export color154;export greenYellow;
+    color155="\e[38;5;155m";darkOliveGreen2="$color155";
+                                export color155;export darkOliveGreen2;
+    color156="\e[38;5;156m";paleGreen1="$color156";
+                                export color156;export paleGreen1;
+    color157="\e[38;5;157m";darkSeaGreen2="$color157";
+                                export color157;export darkSeaGreen2;
+    color158="\e[38;5;158m";darkSeaGreen1="$color158";
+                                export color158;export darkSeaGreen1;
+    color159="\e[38;5;159m";paleTurquoise1="$color159";
+                                export color159;export paleTurquoise1;
+    color160="\e[38;5;160m";red3="$color160";export color160;export red3;
+    color161="\e[38;5;161m";deepPink3_1="$color161";
+                                export color161;export deepPink3_1;
+    color162="\e[38;5;162m";deepPink3="$color162";
+                                export color162;export deepPink3;
+    color163="\e[38;5;163m";magenta3_2="$color163";
+                                export color163;export magenta3_2;
+    color164="\e[38;5;164m";magenta3="$color164";
+                                export color164;export magenta3;
+    color165="\e[38;5;165m";magenta2="$color165";
+                                export color165;export magenta2;
+    color166="\e[38;5;166m";darkOrange3="$color166";
+                                export color166;export darkOrange3;
+    color167="\e[38;5;167m";indianRed="$color167";
+                                export color167;export indianRed;
+    color168="\e[38;5;168m";hotPink3="$color168";
+                                export color168;export hotPink3;
+    color169="\e[38;5;169m";hotPink2="$color169";
+                                export color169;export hotPink2;
+    color170="\e[38;5;170m";orchid="$color170";export color170;export orchid;
+    color171="\e[38;5;171m";mediumOrchid1="$color171";
+                                export color171;export mediumOrchid1;
+    color172="\e[38;5;172m";orange3="$color172";export color172;export orange3;
+    color173="\e[38;5;173m";lightSalmon3="$color173";
+                                export color173;export lightSalmon3;
+    color174="\e[38;5;174m";lightPink3="$color174";
+                                export color174;export lightPink3;
+    color175="\e[38;5;175m";pink3="$color175";export color175;export pink3;
+    color176="\e[38;5;176m";plum3="$color176";export color176;export plum3;
+    color177="\e[38;5;177m";violet="$color177";export color177;export violet;
+    color178="\e[38;5;178m";gold3="$color178";export color178;export gold3;
+    color179="\e[38;5;179m";lightGoldenrod3="$color179";
+                                export color179;export lightGoldenrod3;
+    color180="\e[38;5;180m";tan="$color180";export color180;export tan;
+    color181="\e[38;5;181m";mistyRose3="$color181";
+                                export color181;export mistyRose3;
+    color182="\e[38;5;182m";thistle3="$color182";
+                                export color182;export thistle3;
+    color183="\e[38;5;183m";plum2="$color183";export color183;export plum2;
+    color184="\e[38;5;184m";yellow3="$color184";export color184;export yellow3;
+    color185="\e[38;5;185m";khaki3="$color185";export color185;export khaki3;
+    color186="\e[38;5;186m";lightGoldenrod2_1="$color186";
+                                export color186;export lightGoldenrod2_1;
+    color187="\e[38;5;187m";lightYellow3="$color187";
+                                export color187;export lightYellow3;
+    color188="\e[38;5;188m";grey84="$color188";export color188;export grey84;
+    color189="\e[38;5;189m";lightSteelBlue1="$color189";
+                                export color189;export lightSteelBlue1;
+    color190="\e[38;5;190m";yellow2="$color190";export color190;export yellow2;
+    color191="\e[38;5;191m";darkOliveGreen1_1="$color191";
+                                export color191;export darkOliveGreen1_1;
+    color192="\e[38;5;192m";darkOliveGreen1="$color192";
+                                export color192;export darkOliveGreen1;
+    color193="\e[38;5;193m";darkSeaGreen1="$color193";
+                                export color193;export darkSeaGreen1;
+    color194="\e[38;5;194m";honeydew2="$color194";
+                                export color194;export honeydew2;
+    color195="\e[38;5;195m";lightCyan1="$color195";
+                                export color195;export lightCyan1;
+    color196="\e[38;5;196m";red1="$color196";export color196;export red1;
+    color197="\e[38;5;197m";deepPink2="$color197";
+                                export color197;export deepPink2;
+    color198="\e[38;5;198m";deepPink1_1="$color198";
+                                export color198;export deepPink1_1;
+    color199="\e[38;5;199m";deepPink1="$color199";
+                                export color199;export deepPink1;
+    color200="\e[38;5;200m";magenta2="$color200";
+                                export color200;export magenta2;
+    color201="\e[38;5;201m";magenta1="$color201";
+                                export color201;export magenta1;
+    color202="\e[38;5;202m";orangeRed1="$color202";
+                                export color202;export orangeRed1;
+    color203="\e[38;5;203m";indianRed1_1="$color203";
+                                export color203;export indianRed1_1;
+    color204="\e[38;5;204m";indianRed1="$color204";
+                                export color204;export indianRed1;
+    color205="\e[38;5;205m";hotPink_1="$color205";
+                                export color205;export hotPink_1;
+    color206="\e[38;5;206m";hotPink="$color206";export color206;export hotPink;
+    color207="\e[38;5;207m";mediumOrchid1="$color207";
+                                export color207;export mediumOrchid1;
+    color208="\e[38;5;208m";darkOrange="$color208";
+                                export color208;export darkOrange;
+    color209="\e[38;5;209m";salmon1="$color209";export color209;export salmon1;
+    color210="\e[38;5;210m";lightCoral="$color210";
+                                export color210;export lightCoral;
+    color211="\e[38;5;211m";paleVioletRed1="$color211";
+                                export color211;export paleVioletRed1;
+    color212="\e[38;5;212m";orchid2="$color212";export color212;export orchid2;
+    color213="\e[38;5;213m";orchid1="$color213";export color213;export orchid1;
+    color214="\e[38;5;214m";orange1="$color214";export color214;export orange1;
+    color215="\e[38;5;215m";sandyBrown="$color215";
+                                export color215;export sandyBrown;
+    color216="\e[38;5;216m";lightSalmon1="$color216";
+                                export color216;export lightSalmon1;
+    color217="\e[38;5;217m";lightPink1="$color217";
+                                export color217;export lightPink1;
+    color218="\e[38;5;218m";pink1="$color218";export color218;export pink1;
+    color219="\e[38;5;219m";plum1="$color219";export color219;export plum1;
+    color220="\e[38;5;220m";gold1="$color220";export color220;export gold1;
+    color221="\e[38;5;221m";lightGoldenrod2_2="$color221";
+                                export color221;export lightGoldenrod2_2;
+    color222="\e[38;5;222m";lightGoldenrod2="$color222";
+                                export color222;export lightGoldenrod2;
+    color223="\e[38;5;223m";navajoWhite1="$color223";
+                                export color223;export navajoWhite1;
+    color224="\e[38;5;224m";mistyRose1="$color224";
+                                export color224;export mistyRose1;
+    color225="\e[38;5;225m";thistle1="$color225";
+                                export color225;export thistle1;
+    color226="\e[38;5;226m";yellow1="$color226";export color226;export yellow1;
+    color227="\e[38;5;227m";lightGoldenrod1="$color227";
+                                export color227;export lightGoldenrod1;
+    color228="\e[38;5;228m";khaki1="$color228";export color228;export khaki1;
+    color229="\e[38;5;229m";wheat1="$color229";export color229;export wheat1;
+    color230="\e[38;5;230m";cornsilk1="$color230";
+                                export color230;export cornsilk1;
+    color231="\e[38;5;231m";grey100="$color231";export color231;export grey100;
+    color232="\e[38;5;232m";grey3="$color232";export color232;export grey3;
+    color233="\e[38;5;233m";grey7="$color233";export color233;export grey7;
+    color234="\e[38;5;234m";grey11="$color234";export color234;export grey11;
+    color235="\e[38;5;235m";grey15="$color235";export color235;export grey15;
+    color236="\e[38;5;236m";grey19="$color236";export color236;export grey19;
+    color237="\e[38;5;237m";grey23="$color237";export color237;export grey23;
+    color238="\e[38;5;238m";grey27="$color238";export color238;export grey27;
+    color239="\e[38;5;239m";grey30="$color239";export color239;export grey30;
+    color240="\e[38;5;240m";grey35="$color240";export color240;export grey35;
+    color241="\e[38;5;241m";grey39="$color241";export color241;export grey39;
+    color242="\e[38;5;242m";grey42="$color242";export color242;export grey42;
+    color243="\e[38;5;243m";grey46="$color243";export color243;export grey46;
+    color244="\e[38;5;244m";grey50="$color244";export color244;export grey50;
+    color245="\e[38;5;245m";grey54="$color245";export color245;export grey54;
+    color246="\e[38;5;246m";grey58="$color246";export color246;export grey58;
+    color247="\e[38;5;247m";grey62="$color247";export color247;export grey62;
+    color248="\e[38;5;248m";grey66="$color248";export color248;export grey66;
+    color249="\e[38;5;249m";grey70="$color249";export color249;export grey70;
+    color250="\e[38;5;250m";grey74="$color250";export color250;export grey74;
+    color251="\e[38;5;251m";grey78="$color251";export color251;export grey78;
+    color252="\e[38;5;252m";grey82="$color252";export color252;export grey82;
+    color253="\e[38;5;253m";grey85="$color253";export color253;export grey85;
+    color254="\e[38;5;254m";grey89="$color254";export color254;export grey89;
+    color255="\e[38;5;255m";grey93="$color255";export color255;export grey93;
+#
+# Hintergrundfarben
+    Color0="\e[48;5;0m";Black="$Color0";export Color0;export Black;
+    Color1="\e[48;5;1m";Maroon="$Color1";export Color1;export Maroon;
+    Color2="\e[48;5;2m";Green="$Color2";export Color2;export Green;
+    Color3="\e[48;5;3m";Olive="$Color3";export Color3;export Olive;
+    Color4="\e[48;5;4m";Navy="$Color4";export Color4;export Navy;
+    Color5="\e[48;5;5m";Purple="$Color5";export Color5;export Purple;
+    Color6="\e[48;5;6m";Teal="$Color6";export Color6;export Teal;
+    Color7="\e[48;5;7m";Silver="$Color7";export Color7;export Silver;
+    Color8="\e[48;5;8m";Grey="$Color8";export Color8;export Grey;
+    Color9="\e[48;5;9m";Red="$Color9";export Color9;export Red;
+    Color10="\e[48;5;10m";Lime="$Color10";export Color10;export Lime;
+    Color11="\e[48;5;11m";Yellow="$Color11";export Color11;export Yellow;
+    Color12="\e[48;5;12m";Blue="$Color12";export Color12;export Blue;
+    Color13="\e[48;5;13m";Fuchsia="$Color13";export Color13;export Fuchsia;
+    Color14="\e[48;5;14m";Aqua="$Color14";export Color14;export Aqua;
+    Color15="\e[48;5;15m";White="$Color15";export Color15;export White;
+    Color16="\e[48;5;16m";Grey0="$Color16";export Color16;export Grey0;
+    Color17="\e[48;5;17m";NavyBlue="$Color17";export Color17;export NavyBlue;
+    Color18="\e[48;5;18m";DarkBlue="$Color18";export Color18;export DarkBlue;
+    Color19="\e[48;5;19m";Blue3="$Color19";export Color19;export Blue3;
+    Color20="\e[48;5;20m";Blue3="$Color20";export Color20;export Blue3;
+    Color21="\e[48;5;21m";Blue1="$Color21";export Color21;export Blue1;
+    Color22="\e[48;5;22m";DarkGreen="$Color22";export Color22;export DarkGreen;
+    Color23="\e[48;5;23m";DeepSkyBlue4_1="$Color23";
+                                export Color23;export DeepSkyBlue4_1;
+    Color24="\e[48;5;24m";DeepSkyBlue4_2="$Color24";
+                                export Color24;export DeepSkyBlue4_2;
+    Color25="\e[48;5;25m";DeepSkyBlue4="$Color25";
+                                export Color25;export DeepSkyBlue4;
+    Color26="\e[48;5;26m";DodgerBlue3="$Color26";
+                                export Color26;export DodgerBlue3;
+    Color27="\e[48;5;27m";DodgerBlue2="$Color27";
+                                export Color27;export DodgerBlue2;
+    Color28="\e[48;5;28m";Green4="$Color28";export Color28;export Green4;
+    Color29="\e[48;5;29m";SpringGreen4="$Color29";
+                                export Color29;export SpringGreen4;
+    Color30="\e[48;5;30m";Turquoise4="$Color30";
+                                export Color30;export Turquoise4;
+    Color31="\e[48;5;31m";DeepSkyBlue3_1="$Color31";
+                                export Color31;export DeepSkyBlue3_1;
+    Color32="\e[48;5;32m";DeepSkyBlue3="$Color32";
+                                export Color32;export DeepSkyBlue3;
+    Color33="\e[48;5;33m";DodgerBlue1="$Color33";
+                                export Color33;export DodgerBlue1;
+    Color34="\e[48;5;34m";Green3="$Color34";export Color34;export Green3;
+    Color35="\e[48;5;35m";SpringGreen3_1="$Color35";
+                                export Color35;export SpringGreen3_1;
+    Color36="\e[48;5;36m";DarkCyan="$Color36";export Color36;export DarkCyan;
+    Color37="\e[48;5;37m";LightSeaGreen="$Color37";
+                                export Color37;export LightSeaGreen;
+    Color38="\e[48;5;38m";DeepSkyBlue2="$Color38";
+                                export Color38;export DeepSkyBlue2;
+    Color39="\e[48;5;39m";DeepSkyBlue1="$Color39";
+                                export Color39;export DeepSkyBlue1;
+    Color40="\e[48;5;40m";Green3="$Color40";export Color40;export Green3;
+    Color41="\e[48;5;41m";SpringGreen3="$Color41";
+                                export Color41;export SpringGreen3;
+    Color42="\e[48;5;42m";SpringGreen2_1="$Color42";
+                                export Color42;export SpringGreen2_1;
+    Color43="\e[48;5;43m";Cyan3="$Color43";export Color43;export Cyan3;
+    Color44="\e[48;5;44m";DarkTurquoise="$Color44";
+                                export Color44;export DarkTurquoise;
+    Color45="\e[48;5;45m";Turquoise2="$Color45";
+                                export Color45;export Turquoise2;
+    Color46="\e[48;5;46m";Green1="$Color46";export Color46;export Green1;
+    Color47="\e[48;5;47m";SpringGreen2="$Color47";
+                                export Color47;export SpringGreen2;
+    Color48="\e[48;5;48m";SpringGreen1="$Color48";
+                                export Color48;export SpringGreen1;
+    Color49="\e[48;5;49m";MediumSpringGreen="$Color49";
+                                export Color49;export MediumSpringGreen;
+    Color50="\e[48;5;50m";Cyan2="$Color50";export Color50;export Cyan2;
+    Color51="\e[48;5;51m";Cyan1="$Color51";export Color51;export Cyan1;
+    Color52="\e[48;5;52m";DarkRed="$Color52";export Color52;export DarkRed;
+    Color53="\e[48;5;53m";DeepPink4="$Color53";export Color53;export DeepPink4;
+    Color54="\e[48;5;54m";Purple4_1="$Color54";export Color54;export Purple4_1;
+    Color55="\e[48;5;55m";Purple4="$Color55";export Color55;export Purple4;
+    Color56="\e[48;5;56m";Purple3="$Color56";export Color56;export Purple3;
+    Color57="\e[48;5;57m";BlueViolet="$Color57";
+                                export Color57;export BlueViolet;
+    Color58="\e[48;5;58m";Orange4="$Color58";export Color58;export Orange4;
+    Color59="\e[48;5;59m";Grey37="$Color59";export Color59;export Grey37;
+    Color60="\e[48;5;60m";MediumPurple4="$Color60";
+                                export Color60;export MediumPurple4;
+    Color61="\e[48;5;61m";SlateBlue3_1="$Color61";
+                                export Color61;export SlateBlue3_1;
+    Color62="\e[48;5;62m";SlateBlue3="$Color62";
+                                export Color62;export SlateBlue3;
+    Color63="\e[48;5;63m";RoyalBlue1="$Color63";
+                                export Color63;export RoyalBlue1;
+    Color64="\e[48;5;64m";Chartreuse4="$Color64";export Color64;export Chartreuse4;
+    Color65="\e[48;5;65m";DarkSeaGreen4_1="$Color65";export Color65;export DarkSeaGreen4_1;
+    Color66="\e[48;5;66m";PaleTurquoise4="$Color66";export Color66;export PaleTurquoise4;
+    Color67="\e[48;5;67m";SteelBlue="$Color67";export Color67;export SteelBlue;
+    Color68="\e[48;5;68m";SteelBlue3="$Color68";
+                                export Color68;export SteelBlue3;
+    Color69="\e[48;5;69m";CornflowerBlue="$Color69";
+                                export Color69;export CornflowerBlue;
+    Color70="\e[48;5;70m";Chartreuse3_1="$Color70";
+                                export Color70;export Chartreuse3_1;
+    Color71="\e[48;5;71m";DarkSeaGreen4="$Color71";
+                                export Color71;export DarkSeaGreen4;
+    Color72="\e[48;5;72m";CadetBlue_1="$Color72";
+                                export Color72;export CadetBlue_1;
+    Color73="\e[48;5;73m";CadetBlue="$Color73";export Color73;export CadetBlue;
+    Color74="\e[48;5;74m";SkyBlue3="$Color74";export Color74;export SkyBlue3;
+    Color75="\e[48;5;75m";SteelBlue1_1="$Color75";
+                                export Color75;export SteelBlue1_1;
+    Color76="\e[48;5;76m";Chartreuse3="$Color76";
+                                export Color76;export Chartreuse3;
+    Color77="\e[48;5;77m";PaleGreen3="$Color77";
+                                export Color77;export PaleGreen3;
+    Color78="\e[48;5;78m";SeaGreen3="$Color78";export Color78;export SeaGreen3;
+    Color79="\e[48;5;79m";Aquamarine3="$Color79";
+                                export Color79;export Aquamarine3;
+    Color80="\e[48;5;80m";MediumTurquoise="$Color80";
+                                export Color80;export MediumTurquoise;
+    Color81="\e[48;5;81m";SteelBlue1="$Color81";
+                                export Color81;export SteelBlue1;
+    Color82="\e[48;5;82m";Chartreuse2_1="$Color82";
+                                export Color82;export Chartreuse2_1;
+    Color83="\e[48;5;83m";SeaGreen2="$Color83";export Color83;export SeaGreen2;
+    Color84="\e[48;5;84m";SeaGreen1_1="$Color84";
+                                export Color84;export SeaGreen1_1;
+    Color85="\e[48;5;85m";SeaGreen1="$Color85";export Color85;export SeaGreen1;
+    Color86="\e[48;5;86m";Aquamarine1="$Color86";
+                                export Color86;export Aquamarine1;
+    Color87="\e[48;5;87m";DarkSlateGray2="$Color87";
+                                export Color87;export DarkSlateGray2;
+    Color88="\e[48;5;88m";DarkRed="$Color88";export Color88;export DarkRed;
+    Color89="\e[48;5;89m";DeepPink4="$Color89";export Color89;export DeepPink4;
+    Color90="\e[48;5;90m";DarkMagenta_1="$Color90";
+                                export Color90;export DarkMagenta_1;
+    Color91="\e[48;5;91m";DarkMagenta="$Color91";
+                                export Color91;export DarkMagenta;
+    Color92="\e[48;5;92m";DarkViolet="$Color92";
+                                export Color92;export DarkViolet;
+    Color93="\e[48;5;93m";Purple_1="$Color93";export Color93;export Purple_1;
+    Color94="\e[48;5;94m";Orange4="$Color94";export Color94;export Orange4;
+    Color95="\e[48;5;95m";LightPink4="$Color95";
+                                export Color95;export LightPink4;
+    Color96="\e[48;5;96m";Plum4="$Color96";export Color96;export Plum4;
+    Color97="\e[48;5;97m";MediumPurple3_1="$Color97";
+                                export Color97;export MediumPurple3_1;
+    Color98="\e[48;5;98m";MediumPurple3="$Color98";
+                                export Color98;export MediumPurple3;
+    Color99="\e[48;5;99m";SlateBlue1="$Color99";
+                                export Color99;export SlateBlue1;
+    Color100="\e[48;5;100m";Yellow4_1="$Color100";
+                                export Color100;export Yellow4_1;
+    Color101="\e[48;5;101m";Wheat4="$Color101";export Color101;export Wheat4;
+    Color102="\e[48;5;102m";Grey53="$Color102";export Color102;export Grey53;
+    Color103="\e[48;5;103m";LightSlateGrey="$Color103";
+                                export Color103;export LightSlateGrey;
+    Color104="\e[48;5;104m";MediumPurple="$Color104";
+                                export Color104;export MediumPurple;
+    Color105="\e[48;5;105m";LightSlateBlue="$Color105";
+                                export Color105;export LightSlateBlue;
+    Color106="\e[48;5;106m";Yellow4="$Color106";
+                                export Color106;export Yellow4;
+    Color107="\e[48;5;107m";DarkOliveGreen3_1="$Color107";
+                                export Color107;export DarkOliveGreen3_1;
+    Color108="\e[48;5;108m";DarkSeaGreen="$Color108";
+                                export Color108;export DarkSeaGreen;
+    Color109="\e[48;5;109m";LightSkyBlue3_1="$Color109";
+                                export Color109;export LightSkyBlue3_1;
+    Color110="\e[48;5;110m";LightSkyBlue3="$Color110";
+                                export Color110;export LightSkyBlue3;
+    Color111="\e[48;5;111m";SkyBlue2="$Color111";
+                                export Color111;export SkyBlue2;
+    Color112="\e[48;5;112m";Chartreuse2="$Color112";
+                                export Color112;export Chartreuse2;
+    Color113="\e[48;5;113m";DarkOliveGreen3_2="$Color113";
+                                export Color113;export DarkOliveGreen3_2;
+    Color114="\e[48;5;114m";PaleGreen3="$Color114";
+                                export Color114;export PaleGreen3;
+    Color115="\e[48;5;115m";DarkSeaGreen3_1="$Color115";
+                                export Color115;export DarkSeaGreen3_1;
+    Color116="\e[48;5;116m";DarkSlateGray3="$Color116";
+                                export Color116;export DarkSlateGray3;
+    Color117="\e[48;5;117m";SkyBlue1="$Color117";
+                                export Color117;export SkyBlue1;
+    Color118="\e[48;5;118m";Chartreuse1="$Color118";
+                                export Color118;export Chartreuse1;
+    Color119="\e[48;5;119m";LightGreen_1="$Color119";
+                                export Color119;export LightGreen_1;
+    Color120="\e[48;5;120m";LightGreen="$Color120";
+                                export Color120;export LightGreen;
+    Color121="\e[48;5;121m";PaleGreen1="$Color121";
+                                export Color121;export PaleGreen1;
+    Color122="\e[48;5;122m";Aquamarine1="$Color122";
+                                export Color122;export Aquamarine1;
+    Color123="\e[48;5;123m";DarkSlateGray1="$Color123";
+                                export Color123;export DarkSlateGray1;
+    Color124="\e[48;5;124m";Red3_1="$Color124";
+                                export Color124;export Red3_1;
+    Color125="\e[48;5;125m";DeepPink4="$Color125";
+                                export Color125;export DeepPink4;
+    Color126="\e[48;5;126m";MediumVioletRed="$Color126";
+                                export Color126;export MediumVioletRed;
+    Color127="\e[48;5;127m";Magenta3_1="$Color127";
+                                export Color127;export Magenta3_1;
+    Color128="\e[48;5;128m";DarkViolet="$Color128";
+                                export Color128;export DarkViolet;
+    Color129="\e[48;5;129m";Purple_2="$Color129";
+                                export Color129;export Purple_2;
+    Color130="\e[48;5;130m";DarkOrange3="$Color130";
+                                export Color130;export DarkOrange3;
+    Color131="\e[48;5;131m";IndianRed_1="$Color131";
+                                export Color131;export IndianRed_1;
+    Color132="\e[48;5;132m";HotPink3="$Color132";
+                                export Color132;export HotPink3;
+    Color133="\e[48;5;133m";MediumOrchid3="$Color133";
+                                export Color133;export MediumOrchid3;
+    Color134="\e[48;5;134m";MediumOrchid="$Color134";
+                                export Color134;export MediumOrchid;
+    Color135="\e[48;5;135m";MediumPurple2_1="$Color135";
+                                export Color135;export MediumPurple2_1;
+    Color136="\e[48;5;136m";DarkGoldenrod="$Color136";
+                                export Color136;export DarkGoldenrod;
+    Color137="\e[48;5;137m";LightSalmon3="$Color137";
+                                export Color137;export LightSalmon3;
+    Color138="\e[48;5;138m";RosyBrown="$Color138";
+                                export Color138;export RosyBrown;
+    Color139="\e[48;5;139m";Grey63="$Color139";export Color139;export Grey63;
+    Color140="\e[48;5;140m";MediumPurple2="$Color140";
+                                export Color140;export MediumPurple2;
+    Color141="\e[48;5;141m";MediumPurple1="$Color141";
+                                export Color141;export MediumPurple1;
+    Color142="\e[48;5;142m";Gold3="$Color142";export Color142;export Gold3;
+    Color143="\e[48;5;143m";DarkKhaki="$Color143";
+                                export Color143;export DarkKhaki;
+    Color144="\e[48;5;144m";NavajoWhite3="$Color144";
+                                export Color144;export NavajoWhite3;
+    Color145="\e[48;5;145m";Grey69="$Color145";export Color145;export Grey69;
+    Color146="\e[48;5;146m";LightSteelBlue3="$Color146";
+                                export Color146;export LightSteelBlue3;
+    Color147="\e[48;5;147m";LightSteelBlue="$Color147";
+                                export Color147;export LightSteelBlue;
+    Color148="\e[48;5;148m";Yellow3_1="$Color148";
+                                export Color148;export Yellow3_1;
+    Color149="\e[48;5;149m";DarkOliveGreen3="$Color149";
+                                export Color149;export DarkOliveGreen3;
+    Color150="\e[48;5;150m";DarkSeaGreen3="$Color150";
+                                export Color150;export DarkSeaGreen3;
+    Color151="\e[48;5;151m";DarkSeaGreen2_1="$Color151";
+                                export Color151;export DarkSeaGreen2_1;
+    Color152="\e[48;5;152m";LightCyan3="$Color152";
+                                export Color152;export LightCyan3;
+    Color153="\e[48;5;153m";LightSkyBlue1="$Color153";
+                                export Color153;export LightSkyBlue1;
+    Color154="\e[48;5;154m";GreenYellow="$Color154";
+                                export Color154;export GreenYellow;
+    Color155="\e[48;5;155m";DarkOliveGreen2="$Color155";
+                                export Color155;export DarkOliveGreen2;
+    Color156="\e[48;5;156m";PaleGreen1="$Color156";
+                                export Color156;export PaleGreen1;
+    Color157="\e[48;5;157m";DarkSeaGreen2="$Color157";
+                                export Color157;export DarkSeaGreen2;
+    Color158="\e[48;5;158m";DarkSeaGreen1="$Color158";
+                                export Color158;export DarkSeaGreen1;
+    Color159="\e[48;5;159m";PaleTurquoise1="$Color159";
+                                export Color159;export PaleTurquoise1;
+    Color160="\e[48;5;160m";Red3="$Color160";export Color160;export Red3;
+    Color161="\e[48;5;161m";DeepPink3_1="$Color161";
+                                export Color161;export DeepPink3_1;
+    Color162="\e[48;5;162m";DeepPink3="$Color162";
+                                export Color162;export DeepPink3;
+    Color163="\e[48;5;163m";Magenta3_2="$Color163";
+                                export Color163;export Magenta3_2;
+    Color164="\e[48;5;164m";Magenta3="$Color164";
+                                export Color164;export Magenta3;
+    Color165="\e[48;5;165m";Magenta2="$Color165";
+                                export Color165;export Magenta2;
+    Color166="\e[48;5;166m";DarkOrange3="$Color166";
+                                export Color166;export DarkOrange3;
+    Color167="\e[48;5;167m";IndianRed="$Color167";
+                                export Color167;export IndianRed;
+    Color168="\e[48;5;168m";HotPink3="$Color168";
+                                export Color168;export HotPink3;
+    Color169="\e[48;5;169m";HotPink2="$Color169";
+                                export Color169;export HotPink2;
+    Color170="\e[48;5;170m";Orchid="$Color170";export Color170;export Orchid;
+    Color171="\e[48;5;171m";MediumOrchid1="$Color171";
+                                export Color171;export MediumOrchid1;
+    Color172="\e[48;5;172m";Orange3="$Color172";export Color172;export Orange3;
+    Color173="\e[48;5;173m";LightSalmon3="$Color173";
+                                export Color173;export LightSalmon3;
+    Color174="\e[48;5;174m";LightPink3="$Color174";
+                                export Color174;export LightPink3;
+    Color175="\e[48;5;175m";Pink3="$Color175";export Color175;export Pink3;
+    Color176="\e[48;5;176m";Plum3="$Color176";export Color176;export Plum3;
+    Color177="\e[48;5;177m";Violet="$Color177";export Color177;export Violet;
+    Color178="\e[48;5;178m";Gold3="$Color178";export Color178;export Gold3;
+    Color179="\e[48;5;179m";LightGoldenrod3="$Color179";
+                                export Color179;export LightGoldenrod3;
+    Color180="\e[48;5;180m";Tan="$Color180";export Color180;export Tan;
+    Color181="\e[48;5;181m";MistyRose3="$Color181";
+                                export Color181;export MistyRose3;
+    Color182="\e[48;5;182m";Thistle3="$Color182";
+                                export Color182;export Thistle3;
+    Color183="\e[48;5;183m";Plum2="$Color183";export Color183;export Plum2;
+    Color184="\e[48;5;184m";Yellow3="$Color184";export Color184;export Yellow3;
+    Color185="\e[48;5;185m";Khaki3="$Color185";export Color185;export Khaki3;
+    Color186="\e[48;5;186m";LightGoldenrod2_1="$Color186";
+                                export Color186;export LightGoldenrod2_1;
+    Color187="\e[48;5;187m";LightYellow3="$Color187";
+                                export Color187;export LightYellow3;
+    Color188="\e[48;5;188m";Grey84="$Color188";export Color188;export Grey84;
+    Color189="\e[48;5;189m";LightSteelBlue1="$Color189";
+                                export Color189;export LightSteelBlue1;
+    Color190="\e[48;5;190m";Yellow2="$Color190";export Color190;export Yellow2;
+    Color191="\e[48;5;191m";DarkOliveGreen1_1="$Color191";
+                                export Color191;export DarkOliveGreen1_1;
+    Color192="\e[48;5;192m";DarkOliveGreen1="$Color192";
+                                export Color192;export DarkOliveGreen1;
+    Color193="\e[48;5;193m";DarkSeaGreen1="$Color193";
+                                export Color193;export DarkSeaGreen1;
+    Color194="\e[48;5;194m";Honeydew2="$Color194";
+                                export Color194;export Honeydew2;
+    Color195="\e[48;5;195m";LightCyan1="$Color195";
+                                export Color195;export LightCyan1;
+    Color196="\e[48;5;196m";Red1="$Color196";export Color196;export Red1;
+    Color197="\e[48;5;197m";DeepPink2="$Color197";
+                                export Color197;export DeepPink2;
+    Color198="\e[48;5;198m";DeepPink1_1="$Color198";
+                                export Color198;export DeepPink1_1;
+    Color199="\e[48;5;199m";DeepPink1="$Color199";
+                                export Color199;export DeepPink1;
+    Color200="\e[48;5;200m";Magenta2="$Color200";
+                                export Color200;export Magenta2;
+    Color201="\e[48;5;201m";Magenta1="$Color201";
+                                export Color201;export Magenta1;
+    Color202="\e[48;5;202m";OrangeRed1="$Color202";
+                                export Color202;export OrangeRed1;
+    Color203="\e[48;5;203m";IndianRed1_1="$Color203";
+                                export Color203;export IndianRed1_1;
+    Color204="\e[48;5;204m";IndianRed1="$Color204";
+                                export Color204;export IndianRed1;
+    Color205="\e[48;5;205m";HotPink_1="$Color205";
+                                export Color205;export HotPink_1;
+    Color206="\e[48;5;206m";HotPink="$Color206";export Color206;export HotPink;
+    Color207="\e[48;5;207m";MediumOrchid1="$Color207";
+                                export Color207;export MediumOrchid1;
+    Color208="\e[48;5;208m";DarkOrange="$Color208";
+                                export Color208;export DarkOrange;
+    Color209="\e[48;5;209m";Salmon1="$Color209";export Color209;export Salmon1;
+    Color210="\e[48;5;210m";LightCoral="$Color210";
+                                export Color210;export LightCoral;
+    Color211="\e[48;5;211m";PaleVioletRed1="$Color211";
+                                export Color211;export PaleVioletRed1;
+    Color212="\e[48;5;212m";Orchid2="$Color212";export Color212;export Orchid2;
+    Color213="\e[48;5;213m";Orchid1="$Color213";export Color213;export Orchid1;
+    Color214="\e[48;5;214m";Orange1="$Color214";export Color214;export Orange1;
+    Color215="\e[48;5;215m";SandyBrown="$Color215";
+                                export Color215;export SandyBrown;
+    Color216="\e[48;5;216m";LightSalmon1="$Color216";
+                                export Color216;export LightSalmon1;
+    Color217="\e[48;5;217m";LightPink1="$Color217";
+                                export Color217;export LightPink1;
+    Color218="\e[48;5;218m";Pink1="$Color218";export Color218;export Pink1;
+    Color219="\e[48;5;219m";Plum1="$Color219";export Color219;export Plum1;
+    Color220="\e[48;5;220m";Gold1="$Color220";export Color220;export Gold1;
+    Color221="\e[48;5;221m";LightGoldenrod2_2="$Color221";
+                                export Color221;export LightGoldenrod2_2;
+    Color222="\e[48;5;222m";LightGoldenrod2="$Color222";
+                                export Color222;export LightGoldenrod2;
+    Color223="\e[48;5;223m";NavajoWhite1="$Color223";
+                                export Color223;export NavajoWhite1;
+    Color224="\e[48;5;224m";MistyRose1="$Color224";
+                                export Color224;export MistyRose1;
+    Color225="\e[48;5;225m";Thistle1="$Color225";
+                                export Color225;export Thistle1;
+    Color226="\e[48;5;226m";Yellow1="$Color226";export Color226;export Yellow1;
+    Color227="\e[48;5;227m";LightGoldenrod1="$Color227";
+                                export Color227;export LightGoldenrod1;
+    Color228="\e[48;5;228m";Khaki1="$Color228";export Color228;export Khaki1;
+    Color229="\e[48;5;229m";Wheat1="$Color229";export Color229;export Wheat1;
+    Color230="\e[48;5;230m";Cornsilk1="$Color230";
+                                export Color230;export Cornsilk1;
+    Color231="\e[48;5;231m";Grey100="$Color231";export Color231;export Grey100;
+    Color232="\e[48;5;232m";Grey3="$Color232";export Color232;export Grey3;
+    Color233="\e[48;5;233m";Grey7="$Color233";export Color233;export Grey7;
+    Color234="\e[48;5;234m";Grey11="$Color234";export Color234;export Grey11;
+    Color235="\e[48;5;235m";Grey15="$Color235";export Color235;export Grey15;
+    Color236="\e[48;5;236m";Grey19="$Color236";export Color236;export Grey19;
+    Color237="\e[48;5;237m";Grey23="$Color237";export Color237;export Grey23;
+    Color238="\e[48;5;238m";Grey27="$Color238";export Color238;export Grey27;
+    Color239="\e[48;5;239m";Grey30="$Color239";export Color239;export Grey30;
+    Color240="\e[48;5;240m";Grey35="$Color240";export Color240;export Grey35;
+    Color241="\e[48;5;241m";Grey39="$Color241";export Color241;export Grey39;
+    Color242="\e[48;5;242m";Grey42="$Color242";export Color242;export Grey42;
+    Color243="\e[48;5;243m";Grey46="$Color243";export Color243;export Grey46;
+    Color244="\e[48;5;244m";Grey50="$Color244";export Color244;export Grey50;
+    Color245="\e[48;5;245m";Grey54="$Color245";export Color245;export Grey54;
+    Color246="\e[48;5;246m";Grey58="$Color246";export Color246;export Grey58;
+    Color247="\e[48;5;247m";Grey62="$Color247";export Color247;export Grey62;
+    Color248="\e[48;5;248m";Grey66="$Color248";export Color248;export Grey66;
+    Color249="\e[48;5;249m";Grey70="$Color249";export Color249;export Grey70;
+    Color250="\e[48;5;250m";Grey74="$Color250";export Color250;export Grey74;
+    Color251="\e[48;5;251m";Grey78="$Color251";export Color251;export Grey78;
+    Color252="\e[48;5;252m";Grey82="$Color252";export Color252;export Grey82;
+    Color253="\e[48;5;253m";Grey85="$Color253";export Color253;export Grey85;
+    Color254="\e[48;5;254m";Grey89="$Color254";export Color254;export Grey89;
+    Color255="\e[48;5;255m";Grey93="$Color255";export Color255;export Grey93;
+#
+# Array mit Farbnamen großgeschrieben
+declare -ag _COLOR_NAMES
+    _COLOR_NAMES[0]="Black"
+    _COLOR_NAMES[1]="Maroon"
+    _COLOR_NAMES[2]="Green"
+    _COLOR_NAMES[3]="Olive"
+    _COLOR_NAMES[4]="Navy"
+    _COLOR_NAMES[5]="Purple"
+    _COLOR_NAMES[6]="Teal"
+    _COLOR_NAMES[7]="Silver"
+    _COLOR_NAMES[8]="Grey"
+    _COLOR_NAMES[9]="Red"
+    _COLOR_NAMES[10]="Lime"
+    _COLOR_NAMES[11]="Yellow"
+    _COLOR_NAMES[12]="Blue"
+    _COLOR_NAMES[13]="Fuchsia"
+    _COLOR_NAMES[14]="Aqua"
+    _COLOR_NAMES[15]="White"
+    _COLOR_NAMES[16]="Grey0"
+    _COLOR_NAMES[17]="NavyBlue"
+    _COLOR_NAMES[18]="DarkBlue"
+    _COLOR_NAMES[19]="Blue3"
+    _COLOR_NAMES[20]="Blue3"
+    _COLOR_NAMES[21]="Blue1"
+    _COLOR_NAMES[22]="DarkGreen"
+    _COLOR_NAMES[23]="DeepSkyBlue4_1"
+    _COLOR_NAMES[24]="DeepSkyBlue4_2"
+    _COLOR_NAMES[25]="DeepSkyBlue4"
+    _COLOR_NAMES[26]="DodgerBlue3"
+    _COLOR_NAMES[27]="DodgerBlue2"
+    _COLOR_NAMES[28]="Green4"
+    _COLOR_NAMES[29]="SpringGreen4"
+    _COLOR_NAMES[30]="Turquoise4"
+    _COLOR_NAMES[31]="DeepSkyBlue3_1"
+    _COLOR_NAMES[32]="DeepSkyBlue3"
+    _COLOR_NAMES[33]="DodgerBlue1"
+    _COLOR_NAMES[34]="Green3"
+    _COLOR_NAMES[35]="SpringGreen3_1"
+    _COLOR_NAMES[36]="DarkCyan"
+    _COLOR_NAMES[37]="LightSeaGreen"
+    _COLOR_NAMES[38]="DeepSkyBlue2"
+    _COLOR_NAMES[39]="DeepSkyBlue1"
+    _COLOR_NAMES[40]="Green3"
+    _COLOR_NAMES[41]="SpringGreen3"
+    _COLOR_NAMES[42]="SpringGreen2_1"
+    _COLOR_NAMES[43]="Cyan3"
+    _COLOR_NAMES[44]="DarkTurquoise"
+    _COLOR_NAMES[45]="Turquoise2"
+    _COLOR_NAMES[46]="Green1"
+    _COLOR_NAMES[47]="SpringGreen2"
+    _COLOR_NAMES[48]="SpringGreen1"
+    _COLOR_NAMES[49]="MediumSpringGreen"
+    _COLOR_NAMES[50]="Cyan2"
+    _COLOR_NAMES[51]="Cyan1"
+    _COLOR_NAMES[52]="DarkRed"
+    _COLOR_NAMES[53]="DeepPink4"
+    _COLOR_NAMES[54]="Purple4_1"
+    _COLOR_NAMES[55]="Purple4"
+    _COLOR_NAMES[56]="Purple3"
+    _COLOR_NAMES[57]="BlueViolet"
+    _COLOR_NAMES[58]="Orange4"
+    _COLOR_NAMES[59]="Grey37"
+    _COLOR_NAMES[60]="MediumPurple4"
+    _COLOR_NAMES[61]="SlateBlue3_1"
+    _COLOR_NAMES[62]="SlateBlue3"
+    _COLOR_NAMES[63]="RoyalBlue1"
+    _COLOR_NAMES[64]="Chartreuse4"
+    _COLOR_NAMES[65]="DarkSeaGreen4_1"
+    _COLOR_NAMES[66]="PaleTurquoise4"
+    _COLOR_NAMES[67]="SteelBlue"
+    _COLOR_NAMES[68]="SteelBlue3"
+    _COLOR_NAMES[69]="CornflowerBlue"
+    _COLOR_NAMES[70]="Chartreuse3_1"
+    _COLOR_NAMES[71]="DarkSeaGreen4"
+    _COLOR_NAMES[72]="CadetBlue_1"
+    _COLOR_NAMES[73]="CadetBlue"
+    _COLOR_NAMES[74]="SkyBlue3"
+    _COLOR_NAMES[75]="SteelBlue1_1"
+    _COLOR_NAMES[76]="Chartreuse3"
+    _COLOR_NAMES[77]="PaleGreen3"
+    _COLOR_NAMES[78]="SeaGreen3"
+    _COLOR_NAMES[79]="Aquamarine3"
+    _COLOR_NAMES[80]="MediumTurquoise"
+    _COLOR_NAMES[81]="SteelBlue1"
+    _COLOR_NAMES[82]="Chartreuse2_1"
+    _COLOR_NAMES[83]="SeaGreen2"
+    _COLOR_NAMES[84]="SeaGreen1_1"
+    _COLOR_NAMES[85]="SeaGreen1"
+    _COLOR_NAMES[86]="Aquamarine1"
+    _COLOR_NAMES[87]="DarkSlateGray2"
+    _COLOR_NAMES[88]="DarkRed"
+    _COLOR_NAMES[89]="DeepPink4"
+    _COLOR_NAMES[90]="DarkMagenta_1"
+    _COLOR_NAMES[91]="DarkMagenta"
+    _COLOR_NAMES[92]="DarkViolet"
+    _COLOR_NAMES[93]="Purple_1"
+    _COLOR_NAMES[94]="Orange4"
+    _COLOR_NAMES[95]="LightPink4"
+    _COLOR_NAMES[96]="Plum4"
+    _COLOR_NAMES[97]="MediumPurple3_1"
+    _COLOR_NAMES[98]="MediumPurple3"
+    _COLOR_NAMES[99]="SlateBlue1"
+    _COLOR_NAMES[100]="Yellow4_1"
+    _COLOR_NAMES[101]="Wheat4"
+    _COLOR_NAMES[102]="Grey53"
+    _COLOR_NAMES[103]="LightSlateGrey"
+    _COLOR_NAMES[104]="MediumPurple"
+    _COLOR_NAMES[105]="LightSlateBlue"
+    _COLOR_NAMES[106]="Yellow4"
+    _COLOR_NAMES[107]="DarkOliveGreen3_1"
+    _COLOR_NAMES[108]="DarkSeaGreen"
+    _COLOR_NAMES[109]="LightSkyBlue3_1"
+    _COLOR_NAMES[110]="LightSkyBlue3"
+    _COLOR_NAMES[111]="SkyBlue2"
+    _COLOR_NAMES[112]="Chartreuse2"
+    _COLOR_NAMES[113]="DarkOliveGreen3_2"
+    _COLOR_NAMES[114]="PaleGreen3"
+    _COLOR_NAMES[115]="DarkSeaGreen3_1"
+    _COLOR_NAMES[116]="DarkSlateGray3"
+    _COLOR_NAMES[117]="SkyBlue1"
+    _COLOR_NAMES[118]="Chartreuse1"
+    _COLOR_NAMES[119]="LightGreen_1"
+    _COLOR_NAMES[120]="LightGreen"
+    _COLOR_NAMES[121]="PaleGreen1"
+    _COLOR_NAMES[122]="Aquamarine1"
+    _COLOR_NAMES[123]="DarkSlateGray1"
+    _COLOR_NAMES[124]="Red3"
+    _COLOR_NAMES[125]="DeepPink4"
+    _COLOR_NAMES[126]="MediumVioletRed"
+    _COLOR_NAMES[127]="Magenta3_1"
+    _COLOR_NAMES[128]="DarkViolet"
+    _COLOR_NAMES[129]="Purple_2"
+    _COLOR_NAMES[130]="DarkOrange3"
+    _COLOR_NAMES[131]="IndianRed_1"
+    _COLOR_NAMES[132]="HotPink3"
+    _COLOR_NAMES[133]="MediumOrchid3"
+    _COLOR_NAMES[134]="MediumOrchid"
+    _COLOR_NAMES[135]="MediumPurple2_1"
+    _COLOR_NAMES[136]="DarkGoldenrod"
+    _COLOR_NAMES[137]="LightSalmon3"
+    _COLOR_NAMES[138]="RosyBrown"
+    _COLOR_NAMES[139]="Grey63"
+    _COLOR_NAMES[140]="MediumPurple2"
+    _COLOR_NAMES[141]="MediumPurple1"
+    _COLOR_NAMES[142]="Gold3"
+    _COLOR_NAMES[143]="DarkKhaki"
+    _COLOR_NAMES[144]="NavajoWhite3"
+    _COLOR_NAMES[145]="Grey69"
+    _COLOR_NAMES[146]="LightSteelBlue3"
+    _COLOR_NAMES[147]="LightSteelBlue"
+    _COLOR_NAMES[148]="Yellow3_1"
+    _COLOR_NAMES[149]="DarkOliveGreen3"
+    _COLOR_NAMES[150]="DarkSeaGreen3"
+    _COLOR_NAMES[151]="DarkSeaGreen2_1"
+    _COLOR_NAMES[152]="LightCyan3"
+    _COLOR_NAMES[153]="LightSkyBlue1"
+    _COLOR_NAMES[154]="GreenYellow"
+    _COLOR_NAMES[155]="DarkOliveGreen2"
+    _COLOR_NAMES[156]="PaleGreen1"
+    _COLOR_NAMES[157]="DarkSeaGreen2"
+    _COLOR_NAMES[158]="DarkSeaGreen1"
+    _COLOR_NAMES[159]="PaleTurquoise1"
+    _COLOR_NAMES[160]="Red3"
+    _COLOR_NAMES[161]="DeepPink3_1"
+    _COLOR_NAMES[162]="DeepPink3"
+    _COLOR_NAMES[163]="Magenta3_2"
+    _COLOR_NAMES[164]="Magenta3"
+    _COLOR_NAMES[165]="Magenta2"
+    _COLOR_NAMES[166]="DarkOrange3"
+    _COLOR_NAMES[167]="IndianRed"
+    _COLOR_NAMES[168]="HotPink3"
+    _COLOR_NAMES[169]="HotPink2"
+    _COLOR_NAMES[170]="Orchid"
+    _COLOR_NAMES[171]="MediumOrchid1"
+    _COLOR_NAMES[172]="Orange3"
+    _COLOR_NAMES[173]="LightSalmon3"
+    _COLOR_NAMES[174]="LightPink3"
+    _COLOR_NAMES[175]="Pink3"
+    _COLOR_NAMES[176]="Plum3"
+    _COLOR_NAMES[177]="Violet"
+    _COLOR_NAMES[178]="Gold3"
+    _COLOR_NAMES[179]="LightGoldenrod3"
+    _COLOR_NAMES[180]="Tan"
+    _COLOR_NAMES[181]="MistyRose3"
+    _COLOR_NAMES[182]="Thistle3"
+    _COLOR_NAMES[183]="Plum2"
+    _COLOR_NAMES[184]="Yellow3"
+    _COLOR_NAMES[185]="Khaki3"
+    _COLOR_NAMES[186]="LightGoldenrod2_1"
+    _COLOR_NAMES[187]="LightYellow3"
+    _COLOR_NAMES[188]="Grey84"
+    _COLOR_NAMES[189]="LightSteelBlue1"
+    _COLOR_NAMES[190]="Yellow2"
+    _COLOR_NAMES[191]="DarkOliveGreen1_1"
+    _COLOR_NAMES[192]="DarkOliveGreen1"
+    _COLOR_NAMES[193]="DarkSeaGreen1"
+    _COLOR_NAMES[194]="Honeydew2"
+    _COLOR_NAMES[195]="LightCyan1"
+    _COLOR_NAMES[196]="Red1"
+    _COLOR_NAMES[197]="DeepPink2"
+    _COLOR_NAMES[198]="DeepPink1_1"
+    _COLOR_NAMES[199]="DeepPink1"
+    _COLOR_NAMES[200]="Magenta2"
+    _COLOR_NAMES[201]="Magenta1"
+    _COLOR_NAMES[202]="OrangeRed1"
+    _COLOR_NAMES[203]="IndianRed1_1"
+    _COLOR_NAMES[204]="IndianRed1"
+    _COLOR_NAMES[205]="HotPink_1"
+    _COLOR_NAMES[206]="HotPink"
+    _COLOR_NAMES[207]="MediumOrchid1"
+    _COLOR_NAMES[208]="DarkOrange"
+    _COLOR_NAMES[209]="Salmon1"
+    _COLOR_NAMES[210]="LightCoral"
+    _COLOR_NAMES[211]="PaleVioletRed1"
+    _COLOR_NAMES[212]="Orchid2"
+    _COLOR_NAMES[213]="Orchid1"
+    _COLOR_NAMES[214]="Orange1"
+    _COLOR_NAMES[215]="SandyBrown"
+    _COLOR_NAMES[216]="LightSalmon1"
+    _COLOR_NAMES[217]="LightPink1"
+    _COLOR_NAMES[218]="Pink1"
+    _COLOR_NAMES[219]="Plum1"
+    _COLOR_NAMES[220]="Gold1"
+    _COLOR_NAMES[221]="LightGoldenrod2_2"
+    _COLOR_NAMES[222]="LightGoldenrod2"
+    _COLOR_NAMES[223]="NavajoWhite1"
+    _COLOR_NAMES[224]="MistyRose1"
+    _COLOR_NAMES[225]="Thistle1"
+    _COLOR_NAMES[226]="Yellow1"
+    _COLOR_NAMES[227]="LightGoldenrod1"
+    _COLOR_NAMES[228]="Khaki1"
+    _COLOR_NAMES[229]="Wheat1"
+    _COLOR_NAMES[230]="Cornsilk1"
+    _COLOR_NAMES[231]="Grey100"
+    _COLOR_NAMES[232]="Grey3"
+    _COLOR_NAMES[233]="Grey7"
+    _COLOR_NAMES[234]="Grey11"
+    _COLOR_NAMES[235]="Grey15"
+    _COLOR_NAMES[236]="Grey19"
+    _COLOR_NAMES[237]="Grey23"
+    _COLOR_NAMES[238]="Grey27"
+    _COLOR_NAMES[239]="Grey30"
+    _COLOR_NAMES[240]="Grey35"
+    _COLOR_NAMES[241]="Grey39"
+    _COLOR_NAMES[242]="Grey42"
+    _COLOR_NAMES[243]="Grey46"
+    _COLOR_NAMES[244]="Grey50"
+    _COLOR_NAMES[245]="Grey54"
+    _COLOR_NAMES[246]="Grey58"
+    _COLOR_NAMES[247]="Grey62"
+    _COLOR_NAMES[248]="Grey66"
+    _COLOR_NAMES[249]="Grey70"
+    _COLOR_NAMES[250]="Grey74"
+    _COLOR_NAMES[251]="Grey78"
+    _COLOR_NAMES[252]="Grey82"
+    _COLOR_NAMES[253]="Grey85"
+    _COLOR_NAMES[254]="Grey89"
+    _COLOR_NAMES[255]="Grey93"
+#
+# Steuerungen
+    clr='\e[0m' ;export clr
+    bold='\e[1m' ;export bold
+    mild='\e[2m' ;export mild # Wenig Kontrast? Keine Ahnung
+    underline='\e[4m' ;export underline
+    blink='\e[5m' ;export blink
+    reverse='\e[7m' ;export reverse
+#
+# Alle Farben anzeigen
+    # https://colors.sh/
+formatierungen() {
+    # Einige Formatierungen
+    for clbg in {40..47} {100..107} 49 ; do
+        #Foreground
+        for clfg in {30..37} {90..97} 39 ; do
+            #Formatting
+            for attr in 0 1 2 4 5 7 ; do
+                #Print the result
+                echo -en "\e[${attr};${clbg};${clfg}m ^[${attr};${clbg};${clfg}m \e[0m"
+            done
+            echo #Newline
+        done
+    done
+}
+function fill_up {
+    str=""
+    size=${#1}
+    while ((size<$2)); do
+        str+=" "
+        size=$((size+1));
+    done
+    str+="$1"
+    echo "$str"
+}
+vordergrund_mit_name() {
+    #Vordergrund auf Default
+    i=0
+    while ((i<256)); do
+        colorname=$(fill_up "${_COLOR_NAMES[$i]}" 18)
+        no=$(fill_up "$i" 4)
+        #shellcheck disable=2027 disable=2248
+        echo -en "\e[38;5;"$i"m $colorname $no $clr";
+        #shellcheck disable=2292
+        if [ $(((i + 1) % 6)) == 4 ] ;
+            then echo; #6 Pro Zeile
+        fi;
+        i=$((i+1));
+    done
+}
+vordergrund() {
+    #Vordergrund auf Default
+    for color in {0..255} ; do
+        printf "\e[38;5;%sm %3s \e[0m" "$color"  "$color"
+        #shellcheck disable=2292
+        if [ $(((color + 1) % 16)) == 0 ] ; then echo; fi; #16 Pro Zeile
+    done
+}
+vordergrund_fett_auf_schwarz() {
+    #Vordergrund auf Schwarz Fett
+    for color in {0..255} ; do
+        printf "\e[1m\e[48;5;16m\e[38;5;%sm%3s \e[0m" "$color" "$color"
+        #shellcheck disable=2292
+        if [ $(((color + 1) % 16)) == 0 ] ; then echo; fi; #16 Pro Zeile
+    done
+}
+hintergrund_mit_name() {
+    #Default auf Hintergrund
+    i=0
+    while ((i<256)); do
+        colorname=$(fill_up "${_COLOR_NAMES[$i]}" 18)
+        no=$(fill_up "$i" 4)
+        #shellcheck disable=2027 disable=2248
+        echo -en "\e[48;5;"$i"m $colorname $no $clr";
+        #shellcheck disable=2292
+        if [ $(((i + 1) % 6)) == 4 ] ; then
+            echo; #6 Pro Zeile
+        fi;
+        i=$((i+1));
+    done
+}
+hintergrund() {
+    #Default auf Hintergrund
+    for color in {0..255} ; do
+        printf "\e[48;5;%sm%3s \e[0m" "$color" "$color"
+        #shellcheck disable=2292
+        if [ $(((color + 1) % 16)) == 0 ] ; then echo; fi; #16 Pro Zeile
+    done
+}
+hintergrund_mit_weiss() {
+    #Weiss auf Hintergrund
+    for color in {0..255} ; do
+        printf "\e[38;5;15m\e[48;5;%sm%3s \e[0m" "$color" "$color"
+        #shellcheck disable=2292
+        if [ $(((color + 1) % 16)) == 0 ] ; then echo; fi; #16 Pro Zeile
+    done
+};export hintergrund_mit_weiss
+#
+  # :scop: readonly
+main_colors() {
+    echo "in colors.sh"
+    vordergrund_mit_name
+    hintergrund_mit_name
+}; readonly -f main_colors
+if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
+main_colors "$@"
+fi

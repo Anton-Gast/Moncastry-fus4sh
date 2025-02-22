@@ -1,4 +1,4 @@
-txt2db - ein Projekt der Moncastry Suite
+fus4sh - ein Projekt der Moncastry Suite
 
 [Version](Version.md)
 

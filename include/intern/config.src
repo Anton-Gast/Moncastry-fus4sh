@@ -1,0 +1,29 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+[submodule "test/bats"]
+	url = https://github.com/bats-core/bats-core.git
+	active = true
+[submodule "test/test_helper/bats-support"]
+	url = https://github.com/bats-core/bats-support.git
+	active = true
+[submodule "test/test_helper/bats-assert"]
+	url = https://github.com/bats-core/bats-assert.git
+	active = true
+[submodule "test/test_helper/bats-files"]
+	url = https://github.com/bats-core/bats-assert.git
+	active = true
+[commit]
+	template = ./include/intern/gitcommit.template
+[gui]
+	wmstate = normal
+	geometry = 975x515+40+74 220 234
+[user]
+	email = anton_gast@yahoo.com
+	name = Anton Gast
+[remote "origin"]
+	url = git@github.com:Anton-Gast/Moncastry-fus4sh.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

@@ -1,0 +1,4 @@
+fus4sh
+MONC
+Moncastry
+shellcheck
