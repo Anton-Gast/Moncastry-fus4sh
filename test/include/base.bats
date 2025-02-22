@@ -1099,22 +1099,37 @@ teardown() {
 }
 
 @test "_value_of" {
-    local vars_created
+    local vars_created local priv_created
     local vars_file="${PROJECT_DIR}/Vars"
-    echo "!!!VARS_CREATED:$vars_created;"
+    local priv_file="${PROJECT_DIR}/.Vars"
     if [[ ! -a  "${vars_file}" ]]; then
         echo "!!!ERZEUGE Vars:$vars_file"
         touch "${vars_file}"
         vars_created=1
+    fi
+    if [[ ! -a  "${priv_file}" ]]; then
+        echo "!!!ERZEUGE Priv:$priv_file"
+        touch "${priv_file}"
+        priv_created=1
     fi
     echo "ab;ne ne;" >> "${vars_file}"
     echo "abc;def;" >> "${vars_file}"
     run _value_of "abc"
         assert_success
         assert_output "def"
+
+    echo "abc;uvw;" >> "${priv_file}"
+    run _value_of "abc"
+        assert_success
+        assert_output "uvw"
+
     if [[ -v vars_created ]]; then
         echo "!!!Lösche Vars"
-        rm "${PROJECT_DIR}/Vars"
+        rm "${vars_file}"
+    fi
+    if [[ -v priv_created ]]; then
+        echo "!!!Lösche Priv"
+        rm "${priv_file}"
     fi
 }
 
