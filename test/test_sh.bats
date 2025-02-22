@@ -27,8 +27,28 @@ teardown() {
     assert_failure 2
 }
 @test "main_test_sh" {
-      # Nicht gelingend nicht ausführen, das ergäbe eine nicht endlose Rekursion
+    local base="adsfadsfxse"
+    local bats_file="test/${base}.bats"
+      # Gelingend nicht ausführen, das ergäbe eine endlose Rekursion
     run main_test_sh
     assert_failure 2
     assert_output --partial 'test_sh'
+
+    echo "   # xyz TODO abc" > "${base}.sh"
+    chmod 777 "${base}.sh"
+    touch "${bats_file}"
+
+    run main_test_sh "${base}"
+    assert_failure 1
+    assert_output --partial "   # xyz TODO abc"
+    assert_output --partial "${base}.sh enthält TODO Kommentare."
+
+    echo "   # xyz todo abc" > "${base}.sh"
+    run main_test_sh "${base}"
+    assert_success
+    assert_output --partial "   # xyz todo abc"
+    assert_output --partial "${base}.sh enthält todo Kommentare."
+
+    rm "${base}.sh"
+    rm "${bats_file}"
 }

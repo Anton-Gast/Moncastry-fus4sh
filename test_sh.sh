@@ -46,13 +46,17 @@ help_test_sh () {
 	        test_sh.sh -v Verbose
 	        test_sh.sh -d Dry
 	        test_sh.sh [-s] BASE
-	Führt shellcheck und bats-core tests für BASE.sh aus
+	Führt shellcheck und bats-core tests für BASE.sh aus, sucht nach Todos
 
 	BASE ist der Name des zu testenden Shell scripts ohne extension *.sh.
 	    Die Datei muß aber eine Extension *.sh haben
 	    BASE kann auch einen Pfad relativ zu PWD enthalten
 	    Eine Datei PWD/test/BASE.bats muß existieren
 	    Die Option -s verhindert das Ausführen von shellcheck
+
+	    Enthält die Datei TODO in Kommentarzeilen mit einem # davor, wird mit
+	    Fehlercode abgebrochen. Ist der Todo String klein geschrieben "todo"
+	    wird nur eine Meldung ausgegeben, aber Erfolg gemeldet.
 	DESCRIPTION
 
     _help "${description}"
@@ -133,6 +137,7 @@ main_test_sh() {
   # Variablen
     local arg1 pwd_dir
     local do_shellcheck=1
+    local file bats_file
   #
   # Argumente
     #shellcheck disable=2046 disable=2312
@@ -148,31 +153,48 @@ main_test_sh() {
         esac
     done
     shift $((OPTIND-1))
+    requirements_are_met_test_sh "$@"  || exit $?
     arg1="$1"
     pwd_dir="$(pwd)"
-    requirements_are_met_test_sh "$@"  || exit $?
+    file="${pwd_dir}/${arg1}.sh"
+    bats_file="${pwd_dir}/test/${arg1}.bats"
   #
   # Arbeit
+    if (( verbose )); then
+        echo -e "${tag}grep -e \"^ *#.*TODO\" ${file}"
+    fi
+    if (( ! dry )); then
+        if grep -e "^ *#.*TODO" "${file}" ; then
+            echo "${file} enthält TODO Kommentare. Mit TODOs wird nicht eingecheckt."
+            exit 1
+        fi
+    fi
+    if (( verbose )); then
+        echo -e "${tag}grep -e \"^ *#.*todo\" ${file}"
+    fi
+    if (( ! dry )); then
+        if grep -e "^ *#.*todo" "${file}" ; then
+            echo "${file} enthält todo Kommentare."
+        fi
+    fi
+
     if [[ ${do_shellcheck} -gt 0 ]]; then
         if (( verbose )); then
-          echo -en "${tag}"
-          echo "shellcheck -x -o all \"${pwd_dir}/${arg1}.sh\""
+            echo -e "${tag}shellcheck -x -o all \"${file}\""
         fi
     if (( ! dry )); then
             echo -n "Shellcheck ..."
-            shellcheck -x -o all "${pwd_dir}/${arg1}.sh"
+            shellcheck -x -o all "${file}"
             echo
         fi
     fi
     if (( verbose )); then
-        echo -en "${tag}"
-        echo -n "${pwd_dir}/test/bats/bin/bats "
-        echo "\"${pwd_dir}/test/${arg1}.bats\""
+        echo -e "${tag}${pwd_dir}/test/bats/bin/bats \"${bats_file}\""
     fi
     if (( ! dry )); then
         #shellcheck disable=2181
         if [[ $? -eq 0 ]]; then
-            "${pwd_dir}"/test/bats/bin/bats "${pwd_dir}/test/${arg1}.bats"
+            "${pwd_dir}"/test/bats/bin/bats "${bats_file}"
         fi
     fi
 }; readonly -f main_test_sh
