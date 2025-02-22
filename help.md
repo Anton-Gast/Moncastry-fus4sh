@@ -22,48 +22,57 @@ Dokumentation aus den Kommentaren zu extrahieren. Für fertige Skripte, die
 beibehalten werden sollen, fehlt noch eine Alias-Erstellung, bei der .sh vom
 Skript Namen entfernt wird und so ein normaler Befehlsname entsteht.
 
-# Installation
+# 2. Installation
 
 Um die Sammlung zu verwenden, muß man sie irgendwohin kopieren. Um sie in einem anderen Projekt der Moncastry Suite zu verwenden, muß man eine Umgebungsvariable **SCRIPT_DIR** auf das Elternverzeichnis von **fus4sh** setzen oder im verwendenden Projekt einen Softlinke auf das Wurzelverzeichnis von **fus4sh**
 
-Um die Sammlung weiterzuentwickeln müssen [git](https://git-scm.com/), [shellcheck](https://www.shellcheck.net/) und [bats-core](https://bats-core.readthedocs.io/en/stable/index.html)  installiert sein. Bats-core wird dabei im Wurzelverzeichnis des Projekts so installiert wie im [Quick Installation](https://bats-core.readthedocs.io/en/stable/tutorial.html#quick-installation) beschrieben.
+Um die Sammlung weiterzuentwickeln muß [`./include/intern/pre-commit.src`](./include/intern/pre-commit.src) nach [`pre-commit`](./.git/hooks/pre-commit) kopiert sein, [`./include/intern/post-commit.src`](./include/intern/post-commit.src) nach [`post-commit`](./.git/hooks/post-commit) und [`./include/intern/config.src`](./include/intern/config.src) nach [`./git/config`](.git/config). Damit ist [`gitcommit.template`](./include/intern/gitcommit.template) als git commit-template gesetzt.
+
+ Bei Verwendung von **Visual Studio Code** kann [`./include/intern/fus4sh.code-workspace.src`](./include/intern/fus4sh.code-workspace.src) ins Elternverzeichnis als `fus4sh.code-workspace` kopiert als Workspace  verwendet werden.
+
+
+Für die Entwicklung müssen [git](https://git-scm.com/), [shellcheck](https://www.shellcheck.net/) und [bats-core](https://bats-core.readthedocs.io/en/stable/index.html)  installiert sein. Bats-core wird dabei im Wurzelverzeichnis des Projekts so installiert wie im [Quick Installation](https://bats-core.readthedocs.io/en/stable/tutorial.html#quick-installation) beschrieben.
 
 ```
 git submodule add https://github.com/bats-core/bats-core.git test/bats
 git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support
 git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert
 ```
- [`./include/intern/pre-commit.src`](./include/intern/pre-commit.src) muß nach [`pre-commit`](./.git/hooks/pre-commit) kopiert sein, [`./include/intern/post-commit.src`](./include/intern/post-commit.src) nach [`post-commit`](./.git/hooks/post-commit) und [`./include/intern/config.src`](./include/intern/config.src) nach [`./git/config`](.git/config). Damit ist [`gitcommit.template`](./include/intern/gitcommit.template) als git commit-template gesetzt.
-
- Bei Verwendung von **Visual Studio Code** kann [`./include/intern/fus4sh.code-workspace.src`](./include/intern/fus4sh.code-workspace.src) ins Elternverzeichnis als `fus4sh.code-workspace` kopiert als Workspace  verwendet werden.
+Hat man die submodule so hinzugefügt, darf man  `.git/config` nicht mehr durch rüberkopieren von `./include/intern/config.src` ändern, dann muß man es manuell tun. Am besten vorher kopieren.
 
 
 
-# 2. Enthaltene Skripte
-## 2.1. test_sh
+# 3. Enthaltene Skripte
+## 3.1. test_sh
 Ein Target dieser Sammlung, das nur für Aufgaben des Frameworks verwendet wird:
 Mit diesem Skript werden die Skripte getestet. Es funktioniert auch für sich
 selbst.
 
 Aufruf zum Beispiel: test_sh doit
 
-## 2.2. doit.sh
+## 3.2. doit.sh
 Für dieses Skript existiert noch kein Alias. Es ist ein Template für künftige
 Skripte. Es kann auch getestet werden.
 
-## 2.3. create_acl_dir
+## 3.3. create_acl_dir
 Für dieses Skript existiert noch kein Alias. Es soll ein Verzeichnis mit ACL
 Steuerung erstellt werden. Nach Möglichkeit soll ein existierendes Verzeichnis
 auch umgewandelt werden.
 
-# 3. Aufbau
+# 4. Enthaltene Funktionen
+
+Die Funktionssammlung befindet sich im Verzeichnis `./include`. Zur Zeit nur in der Datei [`base.sh`](./include/base.sh). Der Aufruf von `./include/base.sh` als Script zeigt eine Liste der dort implementierten Funktionen an.
+
+Alle Funktionen haben einen dokumentierenden Header. Es ist angedacht, diesen automatisch zu extrahieren und hier in diese Hilfe hinzuzufügen. Zur Zeit muß man ihn noch in der Datei lesen.
+
+# 5. Aufbau
 Im Wurzelverzeichnis liegen direkt ausführbaren Skripte. Im Verzeichnis include/
 liegen Dateien mit Funktionen.
 
 Alle anderen Dateien sind Hilfsdateien, die für die Entwicklung sinnvoll sind
 oder die zur Information dienen.
 
-## 3.1. Dateien
+## 5.1. Dateien
 - [../fus4sh.code-workspace](../fus4sh.code-workspace)
 - [.gitignore](.gitignore)
 - [.gitmodules](.gitmodules)
