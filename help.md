@@ -26,16 +26,19 @@ Skript Namen entfernt wird und so ein normaler Befehlsname entsteht.
 
 Um die Sammlung zu verwenden, muß man sie irgendwohin kopieren. Um sie in einem anderen Projekt der Moncastry Suite zu verwenden, muß man eine Umgebungsvariable **SCRIPT_DIR** auf das Elternverzeichnis von **fus4sh** setzen oder im verwendenden Projekt einen Softlinke auf das Wurzelverzeichnis von **fus4sh**
 
-Um die Sammlung weiterzuentwickeln müssen [git](https://git-scm.com/), [shellcheck](https://www.shellcheck.net/) und [bats-core](https://bats-core.readthedocs.io/en/stable/index.html)  installiert sein. Bats-core wird dabei im Wurzelverzeichnis des Projekts so installiert wie im [Quick Installation](https://bats-core.readthedocs.io/en/stable/tutorial.html#quick-installation) beschrieben.
+Um die Sammlung weiterzuentwickeln muß [`./include/intern/pre-commit.src`](./include/intern/pre-commit.src) nach [`pre-commit`](./.git/hooks/pre-commit) kopiert sein, [`./include/intern/post-commit.src`](./include/intern/post-commit.src) nach [`post-commit`](./.git/hooks/post-commit) und [`./include/intern/config.src`](./include/intern/config.src) nach [`./git/config`](.git/config). Damit ist [`gitcommit.template`](./include/intern/gitcommit.template) als git commit-template gesetzt.
+
+ Bei Verwendung von **Visual Studio Code** kann [`./include/intern/fus4sh.code-workspace.src`](./include/intern/fus4sh.code-workspace.src) ins Elternverzeichnis als `fus4sh.code-workspace` kopiert als Workspace  verwendet werden.
+
+
+Für die Entwicklung müssen [git](https://git-scm.com/), [shellcheck](https://www.shellcheck.net/) und [bats-core](https://bats-core.readthedocs.io/en/stable/index.html)  installiert sein. Bats-core wird dabei im Wurzelverzeichnis des Projekts so installiert wie im [Quick Installation](https://bats-core.readthedocs.io/en/stable/tutorial.html#quick-installation) beschrieben.
 
 ```
 git submodule add https://github.com/bats-core/bats-core.git test/bats
 git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support
 git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert
 ```
- [`./include/intern/pre-commit.src`](./include/intern/pre-commit.src) muß nach [`pre-commit`](./.git/hooks/pre-commit) kopiert sein, [`./include/intern/post-commit.src`](./include/intern/post-commit.src) nach [`post-commit`](./.git/hooks/post-commit) und [`./include/intern/config.src`](./include/intern/config.src) nach [`./git/config`](.git/config). Damit ist [`gitcommit.template`](./include/intern/gitcommit.template) als git commit-template gesetzt.
-
- Bei Verwendung von **Visual Studio Code** kann [`./include/intern/fus4sh.code-workspace.src`](./include/intern/fus4sh.code-workspace.src) ins Elternverzeichnis als `fus4sh.code-workspace` kopiert als Workspace  verwendet werden.
+Hat man die submodule so hinzugefügt, darf man  `.git/config` nicht mehr durch rüberkopieren von `./include/intern/config.src` ändern, dann muß man es manuell tun. Am besten vorher kopieren.
 
 
 
