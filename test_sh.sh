@@ -53,6 +53,7 @@ help_test_sh () {
 	    BASE kann auch einen Pfad relativ zu PWD enthalten
 	    Eine Datei PWD/test/BASE.bats muß existieren
 	    Die Option -s verhindert das Ausführen von shellcheck
+	    Die Option -t verhindert die Suche nach todo und TODO
 
 	    Enthält die Datei TODO in Kommentarzeilen mit einem # davor, wird mit
 	    Fehlercode abgebrochen. Ist der Todo String klein geschrieben "todo"
@@ -137,17 +138,19 @@ main_test_sh() {
   # Variablen
     local arg1 pwd_dir
     local do_shellcheck=1
+    local do_todo=1
     local file bats_file
   #
   # Argumente
     #shellcheck disable=2046 disable=2312
     set -- $( _long2short_opts "$@" )
-    while getopts dhvs opt; do
+    while getopts dhvst opt; do
         case ${opt} in
             h) help_test_sh; exit 0;;
             d) dry=1;;
             v) verbose=1;;
             s) do_shellcheck=0;;
+            t) do_todo=0;;
             ?) help_test_sh; exit 2;;
             *) help_test_sh; exit 2;; # für shellcheck
         esac
@@ -160,21 +163,24 @@ main_test_sh() {
     bats_file="${pwd_dir}/test/${arg1}.bats"
   #
   # Arbeit
-    if (( verbose )); then
-        echo -e "${tag}grep -e \"^ *#.*TODO\" ${file}"
-    fi
-    if (( ! dry )); then
-        if grep -e "^ *#.*TODO" "${file}" ; then
-            echo "${file} enthält TODO Kommentare. Mit TODOs wird nicht eingecheckt."
-            exit 1
+    if [[ ${do_todo} -gt 0 ]]; then
+        if (( verbose )); then
+            echo -e "${tag}grep -e \"^ *#.*TODO\" ${file}"
         fi
-    fi
-    if (( verbose )); then
-        echo -e "${tag}grep -e \"^ *#.*todo\" ${file}"
-    fi
-    if (( ! dry )); then
-        if grep -e "^ *#.*todo" "${file}" ; then
-            echo "${file} enthält todo Kommentare."
+        if (( ! dry )); then
+            if grep -e "^ *#.*TODO" "${file}" ; then
+                echo -n"${file} enthält TODO Kommentare."
+                echo "Mit TODOs wird nicht eingecheckt."
+                exit 1
+            fi
+        fi
+        if (( verbose )); then
+            echo -e "${tag}grep -e \"^ *#.*todo\" ${file}"
+        fi
+        if (( ! dry )); then
+            if grep -e "^ *#.*todo" "${file}" ; then
+                echo "${file} enthält todo Kommentare."
+            fi
         fi
     fi
 

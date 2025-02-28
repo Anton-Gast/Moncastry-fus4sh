@@ -1,0 +1,20 @@
+Auto Comment Blocks von kky
+Bash IDE von Mads Hartmann
+Better Comments von Aaron Bond
+Bookmarks von Alessandro Fragnani
+German Support for Language Tool von Adam Voss
+Git Graph von mhutchie
+Git History von Don Jayamanne
+indent-rainbow von oderwat
+Keyboard Macro Beta von tshino
+Language Tool for Visual Studio Code von Adam Voss
+Markdown TOC von Charles Wan
+ShellCheck von Timon Wong
+shellman von Remisa
+
+Code Spell Checker von Street Side Software
+German - Code Spell Checker von Street Side Software
+German Language Pack for Visual Studio Code von Microsoft
+Makefile Tools von Microsoft
+PHP Debug von Xdebug
+PHP Intelephense von Ben Mewburn
