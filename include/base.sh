@@ -868,28 +868,37 @@ _help() {
 #
 # :: Gibt den Wert zu einem Kenner aus einer Datei Vars zurück
   # :name: _value_of
-  # :para: 1/Kenner (String)
-  # :desc: Sucht den Kenner in den Dateien Vars und .Vars und gibt den Wert
+  # :para: 1/KENNER/String
+  # :para: [2/DEFAULT/String]
+  # :desc: Sucht den KENNER in den Dateien Vars und .Vars und gibt den Wert
   #        zurück.  Wird er in beiden Dateien gefunden, wird der Wert aus
   #        .Vars zurückgegeben.
-  #
+  #        Falls kein Wert gefunden wird und DEFAULT mitgegeben wurde, wird
+  #        DEFAULT zurückgegeben.
+  #        Falls nichts gefunden wird und kein DEFAULT gesetzt ist, wird ""
+  #        zurückgegeben
   # :stat: 0 - falls alles ok
   #        1 - falls die Datei Vars nicht existiert
   #        2 - falls zu wenig Argumente oder zu viele Argumente
   # :retu: Wert (String);falls alles ok
   # :scop: readonly
 function _value_of {
-    (( $# != 1 )) && return 2
+    (( $# < 1 )) && return 2
+    (( $# > 2 )) && return 2
     if ! [[ -f "Vars" ]]; then return 1; fi
-    local VAR_NAME=$1
+    local VAR_NAME="$1"
+    local DEFAULT="$2"
     local VAR_VALUE=""
     local PRIV_VALUE=""
     local VAR_NAME VAR_VALUE
     #shellcheck disable=2312
-    VAR_VALUE=$(awk '/^'"${VAR_NAME}"';/ {print $0}' "Vars" | awk -F';' '{print $2}')
+    VAR_VALUE=$(awk '/^'"${VAR_NAME}"';/ {a=$0} END{print a}' "Vars" | \
+                                                        awk -F';' '{print $2}')
     #shellcheck disable=2312
-    PRIV_VALUE=$(awk '/^'"${VAR_NAME}"';/ {print $0}' ".Vars" | awk -F';' '{print $2}')
+    PRIV_VALUE=$(awk '/^'"${VAR_NAME}"';/ {a=$0} END{print a}' ".Vars" | \
+                                                        awk -F';' '{print $2}')
     if [[ -n ${PRIV_VALUE} ]]; then VAR_VALUE="${PRIV_VALUE}"; fi
+    if [[ -z ${VAR_VALUE} ]]; then VAR_VALUE="${DEFAULT}"; fi
 
     echo "${VAR_VALUE}"
 }; readonly -f _value_of;

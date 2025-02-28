@@ -3,11 +3,23 @@ setup() {
     _common_setup "include"
 
     source "$PROJECT_ROOT/include/base.sh"
+
+    declare vars_created
+    declare priv_created
+    vars_file="${PROJECT_DIR}/Vars"
+    priv_file="${PROJECT_DIR}/.Vars"
 }
 teardown() {
-    :
+    if [[ -v vars_created ]]; then
+        echo "!!!Lösche Vars"
+        rm "${vars_file}"
+    fi
+    if [[ -v priv_created ]]; then
+        echo "!!!Lösche Priv"
+        rm "${priv_file}"
+    fi
 }
-#: << HIDE
+#:  << HIDE
 @test "Beispiel" {
     assert [ 1 -gt 0 ]
 }
@@ -1098,10 +1110,8 @@ teardown() {
         assert_output "abc\ndef\n"
 }
 
+
 @test "_value_of" {
-    local vars_created local priv_created
-    local vars_file="${PROJECT_DIR}/Vars"
-    local priv_file="${PROJECT_DIR}/.Vars"
     if [[ ! -a  "${vars_file}" ]]; then
         echo "!!!ERZEUGE Vars:$vars_file"
         touch "${vars_file}"
@@ -1123,14 +1133,23 @@ teardown() {
         assert_success
         assert_output "uvw"
 
-    if [[ -v vars_created ]]; then
-        echo "!!!Lösche Vars"
-        rm "${vars_file}"
-    fi
-    if [[ -v priv_created ]]; then
-        echo "!!!Lösche Priv"
-        rm "${priv_file}"
-    fi
+    echo "abc;uuu;" >> "${priv_file}"
+    run _value_of "abc"
+        assert_success
+        assert_output "uuu"
+
+    run _value_of "abc" "Fallback"
+        assert_success
+        assert_output "uuu"
+
+    run _value_of "nichtda"
+        assert_success
+        assert_output ""
+
+    run _value_of "nichtda" "SOLL SO SEIN"
+        assert_success
+        assert_output "SOLL SO SEIN"
+
 }
 
 @test "main_base" {
